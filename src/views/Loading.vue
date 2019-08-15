@@ -1,5 +1,7 @@
 <template>
-	<div>数据加载中。。。。</div>
+	<div>
+		<VueElementLoading :active="this.$store.state.vueElementLoading"></VueElementLoading>
+	</div>
 </template>
 <style scoped>
 
@@ -8,9 +10,13 @@
 	import url from '@/service.config.js';
 	import axios from 'axios';
 	import util from '@/utils.js'
-
+    import VueElementLoading from 'vue-element-loading'
 	export default {
+	    components:{
+            VueElementLoading,
+		},
 		created() {
+            this.$store.state.vueElementLoading = true
 			this.$store.state.loaded = true
 			axios({
 				url: url.getForm,
@@ -25,6 +31,9 @@
 			}).catch(err => {
 				console.log(err);
 			});
+		},
+		mounted(){
+            this.$store.state.vueElementLoading = false
 		}
 	}
 </script>

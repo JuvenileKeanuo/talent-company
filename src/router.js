@@ -7,8 +7,9 @@ import Register from './views/Register.vue'
 import ChangePassword from './views/ChangePassword.vue'
 import Form from './views/Form.vue'
 import CompanyInfo from '@/views/CompanyInfo.vue'
-import TalentStatus from '@/views/TalentStatus.vue'
-import FlowIn from '@/components/FlowIn.vue'
+// import TalentStatus from '@/views/TalentStatus.vue'
+let TalentStatus = () => import('@/views/TalentStatus.vue');
+import FlowIn from '@/views/FlowIn.vue'
 import FlowOut from '@/components/FlowOut.vue'
 import FlowTalentInfo from '@/components/FlowTalentInfo.vue'
 import Loading from '@/views/Loading.vue'
@@ -43,12 +44,18 @@ export default new Router({
                 {
                     path: 'companyInfo',
                     name: 'companyInfo',
-                    component: CompanyInfo
+                    component: CompanyInfo,
+                    meta: {
+                        keepAlive: true
+                    }
                 },
                 {
                     path: 'talentStatus',
                     name: 'talentStatus',
-                    component: TalentStatus
+                    component: TalentStatus,
+                    meta: {
+                        keepAlive: true
+                    }
                 },
                 {
                     path: 'flowIn',
@@ -72,11 +79,11 @@ export default new Router({
             name: 'register',
             component: Register
         },
-		{
-		    path: '/home',
-		    name: 'home',
-		    component: Home
-		},
+        {
+            path: '/home',
+            name: 'home',
+            component: Home
+        },
         {
             path: '/login',
             name: 'login',

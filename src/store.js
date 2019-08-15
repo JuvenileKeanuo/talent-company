@@ -498,7 +498,8 @@ export default new Vuex.Store({
 			_sum_out: [],
 			_out_status: [],
 			_need: []
-		}
+		},
+        vueElementLoading: false,
 	},
 	mutations: {
 

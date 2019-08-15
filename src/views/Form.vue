@@ -31,7 +31,10 @@
                 </div>
             </div>
         </Menu>
-        <router-view/>
+        <keep-alive>
+            <router-view v-if="$route.meta.keepAlive"></router-view>
+        </keep-alive>
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
     </div>
 </template>
 <style scoped>
@@ -59,7 +62,6 @@
 <script>
 	import url from '@/service.config.js';
 	import axios from 'axios';
-	
     export default {
         data() {
             return {
@@ -72,7 +74,6 @@
                 this.$router.push('/')
             },
             select(name){
-                console.log(name);
                 this.$router.push(name);
             },
             saveHandle(){
