@@ -84,7 +84,7 @@
 					}
 				],
 			}],
-			cascader_init: ['jiangsu','nanjing','fuzimiao']
+			cascader_init: ['beijing', 'tiantan']
 		}),
 		methods: {
 			test() {
