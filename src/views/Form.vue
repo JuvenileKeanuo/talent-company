@@ -19,6 +19,9 @@
                 <MenuItem name="flowTalentInfo">流出人才信息统计</MenuItem>
             </Submenu>
             <div class="user">
+                <div class="submit">
+                    <Button type="success">提交问卷</Button>
+                </div>
                 <div class="user-name">欢迎，{{companyName}}</div>
                 <div class="logout">
                     <span @click="logout">退出登录</span>
@@ -42,6 +45,9 @@
         position: absolute;
         right: 30px;
         top: 0;
+    }
+    .submit {
+        margin-right: 20px;
     }
     .user .user-name {
         margin-right: 15px;
