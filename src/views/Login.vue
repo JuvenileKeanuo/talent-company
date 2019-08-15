@@ -78,7 +78,7 @@
         },
         methods: {
             login(){
-                this.$router.push('/form/companyInfo');
+                this.$router.push('/loading');
             }
         }
     }

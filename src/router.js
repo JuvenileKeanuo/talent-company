@@ -11,6 +11,7 @@ import TalentStatus from '@/views/TalentStatus.vue'
 import FlowIn from '@/components/FlowIn.vue'
 import FlowOut from '@/components/FlowOut.vue'
 import FlowTalentInfo from '@/components/FlowTalentInfo.vue'
+import Loading from '@/views/Loading.vue'
 
 
 Vue.use(Router)
@@ -23,6 +24,11 @@ export default new Router({
             path: '/',
             name: 'guide',
             component: Guide
+        },
+        {
+            path: '/loading',
+            name: 'loading',
+            component: Loading
         },
         {
             path: '/changePassword',

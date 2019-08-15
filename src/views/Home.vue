@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <template>
 	<div class="home">
 		<button class="setCookie" @click="setCookies">设置cookie</button>
