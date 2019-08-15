@@ -1,5 +1,5 @@
 <template>
-	<Form label-position="top" style="text-align: left;margin: 1em;">
+	<Form label-position="top" style="text-align: left;">
 		<Form-item :label="label">
 			<Input v-model="value" @on-change="emit"></Input>
 		</Form-item>
@@ -24,6 +24,9 @@
 		},
 		methods: {
 			emit() {
+				if (this.$data.value === undefined) {
+					this.$data.value = null
+				}
 				this.$emit('input', this.$data.value)
 			}
 		}

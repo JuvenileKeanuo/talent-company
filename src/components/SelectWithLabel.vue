@@ -1,5 +1,5 @@
 <template>
-	<Form label-position="top" style="text-align: left;margin: 1em;">
+	<Form label-position="top" style="text-align: left;">
 		<Form-item :label="label">
 			<Select v-model="model1" @on-change="emit">
 				<Option v-for="item in list" :value="item.value" :key="item.value">{{ item.label }}</Option>
@@ -27,7 +27,11 @@
 		},
 		methods: {
 			emit() {
-				this.$emit('input', this.$data.model1)
+				if (this.$data.model1 === undefined) {
+					this.$data.model1 = null
+				} else {
+					this.$emit('input', this.$data.model1)
+				}
 			}
 		}
 	}

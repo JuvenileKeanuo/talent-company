@@ -1,7 +1,7 @@
 <template>
-	<Form label-position="top" style="text-align: left;margin: 1em;">
+	<Form label-position="top" style="text-align: left;">
 		<Form-item :label="label">
-			<Input-number v-model="value" style="width:100%;"></Input-number>
+			<Input-number v-model="value" style="width:100%;" @on-change="emit()"></Input-number>
 		</Form-item>
 	</Form>
 </template>
@@ -15,7 +15,7 @@
 		},
 		data() {
 			return {
-				value: 0
+				value: null
 			}
 		},
 		mounted() {
@@ -24,6 +24,9 @@
 		},
 		methods: {
 			emit() {
+				if (this.$data.value === undefined || this.$data.value === null){
+					this.$data.value = null
+				}
 				this.$emit('input', this.$data.value)
 			}
 		}
