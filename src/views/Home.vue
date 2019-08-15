@@ -1,5 +1,8 @@
 <template>
 	<div class="home">
+		<button class="setCookie" @click="setCookies">设置cookie</button>
+		<button class="deleteCookie" @click="delCookies">清除Cookie</button>
+		<button class="deleteCookie" @click="getCookie">获得Cookie</button>
 		<Card :bordered="false" style="width:600px;text-align: left;margin:100px;">
 			<p slot="title">性别结构</p>
 			<InputWithLabel label="姓名" v-model="form[0]" />
@@ -20,7 +23,62 @@
 	import CascaderWithLabel from '@/components/CascaderWithLabel.vue'
 	import CascaderWithInputWithLabel from '@/components/CascaderWithInputWithLabel.vue'
 
+    import url from '@/service.config.js';
+    import axios from 'axios';
+
 	export default {
+	    created(){
+            console.log('aaaa');
+            //get
+            axios({
+                url: url.test,
+                method: 'get',
+                data: {}
+            }).then(res => {
+                console.log(res.data);
+            }).catch(err => {
+                console.log(err);
+            });
+
+			//post
+            axios({
+                url:url.post,
+                method: 'post',
+                data: {
+                    "name":"cheny",
+                    "age": '23',
+					"cc":{"aa": 'bb'}
+				}
+            }).then(res=>{
+                console.log(res.data);
+            }).catch(err=>{
+                console.log(err);
+            })
+
+
+		},
+        methods: {
+            test() {
+                console.log(this.$data.form)
+            },
+            setCookies(){
+                let info = {
+                    "username":'aa',
+                    "password": '123'
+				};
+                //设置过期时间
+                let expires = 2* 24 * 60 * 60 * 1000;
+                var date = new Date(+new Date()+expires);
+                this.$cookies.set('cookieTest', info,date);
+            },
+            delCookies(){
+                this.$cookies.remove('cookieTest');
+            },
+            getCookie(){
+                let cookie = this.$cookies.get('cookieTest');
+                console.log(cookie);
+            }
+        },
 		name: 'home',
 		components: {
 			HelloWorld,
@@ -86,10 +144,5 @@
 			}],
 			cascader_init: ['beijing', 'tiantan']
 		}),
-		methods: {
-			test() {
-				console.log(this.$data.form)
-			}
-		},
 	}
 </script>
