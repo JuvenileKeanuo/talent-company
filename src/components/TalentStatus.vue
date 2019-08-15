@@ -5,7 +5,7 @@
                 <Card class="card" :bordered="false">
                     <p slot="title">职工人数</p>
                     <div class="item-box">
-                        <InputNumberWithLabel label="职工人数" v-model="form[0]"></InputNumberWithLabel>
+                        <InputNumberWithLabel v-model="form[0]"></InputNumberWithLabel>
                     </div>
                 </Card>
             </div>
@@ -13,7 +13,7 @@
                 <Card class="card" :bordered="false">
                     <p slot="title">上一年度产值（万元）</p>
                     <div class="item-box">
-                        <InputNumberWithLabel label="上一年度产值（万元）：" v-model="form[0]"></InputNumberWithLabel>
+                        <InputNumberWithLabel v-model="form[0]"></InputNumberWithLabel>
                     </div>
                 </Card>
             </div>
@@ -21,7 +21,7 @@
                 <Card class="card" :bordered="false">
                     <p slot="title">研发经费投入（万元）</p>
                     <div class="item-box">
-                        <InputNumberWithLabel label="研发经费投入（万元）" v-model="form[0]"></InputNumberWithLabel>
+                        <InputNumberWithLabel v-model="form[0]"></InputNumberWithLabel>
                     </div>
                 </Card>
             </div>
@@ -29,7 +29,7 @@
                 <Card class="card" :bordered="false">
                     <p slot="title">新产品销售收入（万元）</p>
                     <div class="item-box">
-                        <InputNumberWithLabel label="新产品销售收入（万元）" v-model="form[0]"></InputNumberWithLabel>
+                        <InputNumberWithLabel v-model="form[0]"></InputNumberWithLabel>
                     </div>
                 </Card>
             </div>
@@ -37,7 +37,7 @@
                 <Card class="card" :bordered="false">
                     <p slot="title">专利申请授权数</p>
                     <div class="item-box">
-                        <InputNumberWithLabel label="专利申请授权数" v-model="form[0]"></InputNumberWithLabel>
+                        <InputNumberWithLabel v-model="form[0]"></InputNumberWithLabel>
                     </div>
                 </Card>
             </div>
@@ -111,7 +111,7 @@
     .box {
         display: flex;
         flex-wrap: wrap;
-        margin: 30px 100px;
+        margin: 10px 100px 5px 100px;
     }
     .box-item {
         display: flex;
