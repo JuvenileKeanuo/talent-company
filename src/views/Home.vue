@@ -25,10 +25,12 @@
 
     import url from '@/service.config.js';
     import axios from 'axios';
+	import util from '@/utils.js'
 
 	export default {
 	    created(){
             console.log('aaaa');
+			/*
             //get
             axios({
                 url: url.test,
@@ -54,6 +56,7 @@
             }).catch(err=>{
                 console.log(err);
             })
+			*/
 
 
 		},
@@ -62,6 +65,7 @@
                 console.log(this.$data.form)
             },
             setCookies(){
+				/*
                 let info = {
                     "username":'aa',
                     "password": '123'
@@ -70,12 +74,14 @@
                 let expires = 2* 24 * 60 * 60 * 1000;
                 var date = new Date(+new Date()+expires);
                 this.$cookies.set('cookieTest', info,date);
+				*/
+			   util.setCookies('jk', '12345', this)
             },
             delCookies(){
-                this.$cookies.remove('cookieTest');
+                this.$cookies.remove('user_data');
             },
             getCookie(){
-                let cookie = this.$cookies.get('cookieTest');
+                let cookie = this.$cookies.get('user_data');
                 console.log(cookie);
             }
         },
