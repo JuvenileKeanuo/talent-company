@@ -20,6 +20,9 @@
             </Submenu>
             <div class="user">
                 <div class="submit">
+                    <Button class="button" type="primary" @click="saveHandle">暂存</Button>
+                </div>
+                <div class="submit">
                     <Button type="success">提交问卷</Button>
                 </div>
                 <div class="user-name">欢迎，{{companyName}}</div>
@@ -68,6 +71,12 @@
             select(name){
                 console.log(name);
                 this.$router.push(name);
+            },
+            saveHandle(){
+                this.$message({
+                    message: '已暂存到服务器，请放心退出',
+                    type: 'success'
+                });
             }
         },
 		created() {

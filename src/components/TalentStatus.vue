@@ -122,6 +122,10 @@
     .input-box {
         display: flex;
     }
+    .card {
+        height: 125px;
+        box-sizing: border-box;
+    }
 </style>
 <script>
     import InputNumberWithLabel from '../components/InputNumberWithLabel.vue';

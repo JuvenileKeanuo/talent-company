@@ -1,9 +1,6 @@
 <template>
 	<div>
 		<CompanyInfo v-model="basic" :initObj="initObj"></CompanyInfo>
-		<div class="button-box">
-			<Button class="button" type="primary" @click="saveHandle">保存</Button>
-		</div>
 	</div>
 </template>
 <style scoped>
