@@ -40,7 +40,6 @@
 		},
 		methods: {
 			emit() {
-			    console.log('cascader change', this.$data.value1)
 				setTimeout(() => {
 					var obj = {
 						cas: this.$data.value1,
