@@ -69,6 +69,11 @@
                 console.log(name);
                 this.$router.push(name);
             }
-        }
+        },
+		created() {
+			if (!this.$store.state.loaded) {
+				this.$router.push('/loading')
+			}
+		}
     }
 </script>

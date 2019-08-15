@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state: {
 		count: 155,
+		loaded: false,
 		form: {
 			_from_user: null,
 			_confirmed: false,
