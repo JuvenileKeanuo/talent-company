@@ -39,14 +39,6 @@
             <div class="forget">
                 <router-link to="/login">已有账号，现在登录？</router-link>
             </div>
-
-            <!--提示框样式-->
-            <Modal
-                    v-model="modal1"
-                    title="注册成功"
-                    @on-ok="ok"
-                    @on-cancel="cancel">
-            </Modal>
         </div>
     </div>
 </template>
@@ -105,7 +97,15 @@
         },
         methods: {
             registerHandle(){
-                this.modal1 = true;
+                // this.modal1 = true;
+                let title = '注册成功';
+                this.$Modal.success({
+                    title: title,
+                    okText: '去登录',
+                    onOk: ()=>{
+                        this.$router.push('/login');
+                    }
+                })
             }
         }
     }

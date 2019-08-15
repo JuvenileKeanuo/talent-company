@@ -11,17 +11,30 @@
             </div>
             <div class="account">
                 <div class="account-label">
-                    密 &nbsp;&nbsp; 码：
+                    身份证号：
                 </div>
                 <div class="account-input">
-                    <Input v-model="password" type="password" placeholder="请输入密码" style="width: 230px"/>
+                    <Input v-model="idNum" type="text" placeholder="请输入注册时的身份证号" style="width: 230px"/>
+                </div>
+            </div>
+            <div class="account">
+                <div class="account-label">
+                    新密码：
+                </div>
+                <div class="account-input">
+                    <Input v-model="password1" type="password" placeholder="请输入密码" style="width: 230px"/>
+                </div>
+            </div>
+            <div class="account">
+                <div class="account-label">
+                    确认密码：
+                </div>
+                <div class="account-input">
+                    <Input v-model="password2" type="password" placeholder="请输入密码" style="width: 230px"/>
                 </div>
             </div>
             <div class="button">
-                <Button type="primary" shape="circle" @click="login" long>登录</Button>
-            </div>
-            <div class="forget">
-                <router-link to="/changePassword">忘记密码？</router-link>
+                <Button type="primary" shape="circle" long @click="buttonHandle">确认</Button>
             </div>
         </div>
     </div>
@@ -73,12 +86,22 @@
         data(){
             return {
                 account: '',
-                password: '',
+                idNum: '',
+                password1: '',
+                password2: '',
             }
         },
         methods: {
-            login(){
-                this.$router.push('/form/companyInfo');
+            buttonHandle(){
+                // this.modal1 = true;
+                let title = '密码修改成功';
+                this.$Modal.success({
+                    title: title,
+                    okText: '去登录',
+                    onOk: ()=>{
+                        this.$router.push('/login');
+                    }
+                })
             }
         }
     }

@@ -10,6 +10,6 @@
 
 <style>
   #app {
-    background: linear-gradient(0deg, rgba(96, 96, 96, 0.2), rgba(96, 96, 96, 0.2));
+    /*background: linear-gradient(0deg, rgba(96, 96, 96, 0.2), rgba(96, 96, 96, 0.2));*/
   }
 </style>

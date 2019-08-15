@@ -73,6 +73,7 @@
     .container {
         padding: 20px 350px;
         box-sizing: border-box;
+        background: linear-gradient(0deg, rgba(96, 96, 96, 0.2), rgba(96, 96, 96, 0.2));
     }
     .margin-bottom {
         margin-bottom: 15px;
