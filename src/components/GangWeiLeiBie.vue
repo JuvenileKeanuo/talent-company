@@ -86,7 +86,6 @@
 			addHandle() {
 				let num = this.$data.num ++
 				this.$data.form.push({id: num})
-				console.log(this.$data.form)
 			},
 			delHandle(index) {
 				var cur_index = this.$data.form.findIndex(item => {
@@ -105,7 +104,11 @@
 		watch: {
 			form: {
 				handler(val, oldval) {
-					console.log('!!!!', this.$data.form)
+					let emitArray = []
+					for (var item of this.$data.form) {
+						emitArray.push(item['岗位类别'])
+					}
+					this.$emit('input', emitArray)
 				},
 				deep: true
 			}

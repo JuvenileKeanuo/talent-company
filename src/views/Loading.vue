@@ -12,7 +12,6 @@
 	export default {
 		created() {
 			this.$store.state.loaded = true
-			console.log(util.getCookies(this))
 			axios({
 				url: url.getForm,
 				method: 'get',
@@ -21,7 +20,6 @@
 					user_password: util.getCookies(this).user_password
 				}
 			}).then(res => {
-				console.log('loading', res.data);
 				this.$store.state.form = res.data
 				this.$router.push('/form/companyInfo')
 			}).catch(err => {

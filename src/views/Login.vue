@@ -98,7 +98,6 @@
 						user_password: this.$data.password
 					}
 				}).then(res => {
-				    console.log(res.data);
 					if (res.data === -1 || res.data === -2) {
 						this.$message.error('用户名或密码输入错误！');
 					} else {

@@ -53,7 +53,6 @@
 			basic: {
 				handler(val, oldval) {
 					this.$store.state.form._basic = this.$data.basic
-					console.log('moved',this.$store.state.form._basic)
 				},
 				deep: true
 			}
