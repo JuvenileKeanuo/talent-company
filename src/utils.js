@@ -9,6 +9,12 @@ function setCookies(user_name, user_password, that) {
 	that.$cookies.set('user_data', info, date);
 }
 
+function getCookies(that) {
+	let cookie = that.$cookies.get('user_data');
+	return cookie
+}
+
 module.exports = {
-	setCookies: setCookies
+	setCookies: setCookies,
+	getCookies: getCookies
 }

@@ -85,6 +85,10 @@
     }
 </style>
 <script>
+	import url from '@/service.config.js';
+	import axios from 'axios';
+	import util from '@/utils.js'
+	
     export default {
         data(){
             return {
@@ -97,15 +101,46 @@
         },
         methods: {
             registerHandle(){
+				console.log(this.$data.password1.length)
+				const patt_id = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
                 // this.modal1 = true;
+				if (this.$data.account.length < 6) {
+					this.$message.error('用户名长度最小为6位！');
+					return
+				}
+				if (!patt_id.test(this.$data.idNum)) {
+					this.$message.error('身份证号不合法！')
+					return
+				}
+				if (this.$data.password1.length < 6) {
+					this.$message.error('密码长度最小为6位！');
+					return
+				}
+				if (this.$data.password1 !== this.$data.password2) {
+					this.$message.error('请两次输入一样的密码！');
+					return
+				}
                 let title = '注册成功';
-                this.$Modal.success({
-                    title: title,
-                    okText: '去登录',
-                    onOk: ()=>{
-                        this.$router.push('/login');
-                    }
-                })
+				axios({
+				    url: url.reg,
+				    method: 'get',
+				    params: {
+						user_name: this.$data.account,
+						user_password: this.$data.password1,
+						user_id_card: this.$data.idNum
+					}
+				}).then(res => {
+				    console.log(res.data);
+					this.$Modal.success({
+					    title: title,
+					    okText: '去登录',
+					    onOk: ()=>{
+					        this.$router.push('/login');
+					    }
+					})
+				}).catch(err => {
+				    console.log(err);
+				});
             }
         }
     }

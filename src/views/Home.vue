@@ -83,7 +83,7 @@
             },
             getCookie(){
                 let cookie = this.$cookies.get('user_data');
-                console.log(cookie);
+                return cookie
             }
         },
 		name: 'home',

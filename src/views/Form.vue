@@ -57,6 +57,9 @@
     }
 </style>
 <script>
+	import url from '@/service.config.js';
+	import axios from 'axios';
+	
     export default {
         data() {
             return {
@@ -73,6 +76,17 @@
                 this.$router.push(name);
             },
             saveHandle(){
+				console.log(this.$store.state.form)
+				let that = this
+				axios({
+				    url:url.save,
+				    method: 'post',
+				    data: that.$store.state.form
+				}).then(res=>{
+				    console.log(res.data);
+				}).catch(err=>{
+				    console.log(err);
+				})
                 this.$message({
                     message: '已暂存到服务器，请放心退出',
                     type: 'success'

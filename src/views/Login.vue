@@ -69,6 +69,10 @@
     }
 </style>
 <script>
+	import url from '@/service.config.js';
+	import axios from 'axios';
+	import util from '@/utils.js'
+	
     export default {
         data(){
             return {
@@ -78,7 +82,36 @@
         },
         methods: {
             login(){
-                this.$router.push('/loading');
+				if (this.$data.account.length < 6) {
+					this.$message.error('用户名长度最小为6位！');
+					return
+				}
+				if (this.$data.password.length < 6) {
+					this.$message.error('密码长度最小为6位！');
+					return
+				}
+				axios({
+				    url: url.login,
+				    method: 'get',
+				    params: {
+						user_name: this.$data.account,
+						user_password: this.$data.password
+					}
+				}).then(res => {
+				    console.log(res.data);
+					if (res.data === -1 || res.data === -2) {
+						this.$message.error('用户名或密码输入错误！');
+					} else {
+						util.setCookies(this.$data.account, this.$data.password, this)
+						this.$message({
+						    message: '登陆成功！',
+						    type: 'success'
+						});
+						this.$router.push('/loading');
+					}
+				}).catch(err => {
+				    console.log(err);
+				});
             }
         }
     }
